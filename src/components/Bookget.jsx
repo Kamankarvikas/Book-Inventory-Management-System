@@ -53,11 +53,17 @@ export default function Bookget() {
         </div>
       )}
 
-      {showDeleteMessage && (
+      {/* {showDeleteMessage && (
         <div className="absolute top-0 left-0 right-0 p-2 text-center text-white bg-green-500">
           Book deleted successfully!
         </div>
-      )}
+      )} */}
+      {showDeleteMessage && (
+  <div className="fixed p-2 text-center text-white transform -translate-x-1/2 -translate-y-1/2 bg-green-500 top-1/2 left-1/2">
+    Book deleted successfully!
+  </div>
+)}
+
 
       <h1 className="mt-6 mb-4 text-2xl font-semibold text-custom-color font-custom">Available Books</h1>
 

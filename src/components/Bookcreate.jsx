@@ -1,7 +1,8 @@
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Bookcreate() {
   const [name, setName] = useState('');
@@ -17,6 +18,7 @@ export default function Bookcreate() {
   const postData = async (event) => {
     event.preventDefault();
     if (!name || !authorName || !publishDate || !publisher || !description || !price || !language) {
+      toast.error('Please fill in all fields.');
       console.error('Please fill in all fields.');
       return;
     }
@@ -90,6 +92,7 @@ export default function Bookcreate() {
           Book created successfully!
         </div>
       )}
+      <ToastContainer /> 
     </div>
   );
 }
