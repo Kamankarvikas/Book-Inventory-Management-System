@@ -5,14 +5,11 @@ import Bookget from './components/Bookget'
 import Header from './components/Header'
 import Bookinfo from './components/Bookinfo'
 import Bookupdate from './components/Bookupdate'
-
+import About from './components/About'
 import { useState,useEffect } from 'react'
-
 function App() {
   const [APIData, setAPIData] = useState([]);
-
-  // Fetch API data when component mounts
-  useEffect(() => {
+useEffect(() => {
     fetch('your_api_endpoint')
       .then(response => {
         if (!response.ok) {
@@ -31,21 +28,12 @@ function App() {
       <Routes>
         <Route path='/' element={<Bookget/>}/>
         <Route path='/bookcreate' element={<Bookcreate/>}/>
-        {/* <Route path="/book/:id" element={<Bookinfo/>} /> */}
-        {/* <Route path="/book/:id" element={<Bookinfo />} /> */}
-        <Route path="/book/:id" element={<Bookinfo APIData={APIData} />} />
+        <Route path="/book/:id" element={<Bookinfo/>} />
         <Route path="/update/:id" element={<Bookupdate/>}/>
-        
-
-      </Routes>
-   
-        
-         
-    
-   
-  </BrowserRouter>
+        <Route path="/about" element={<About/>}/>
+        </Routes>
+   </BrowserRouter>
   </>
   )
 }
-
 export default App
